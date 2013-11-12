@@ -180,6 +180,7 @@
 				<ul>
 					<li class="controller"><g:link controller="dashboard">Dashboards</g:link></li>
 					<li class="controller"><g:link controller="card">Cards</g:link></li>
+					<li class="controller"><g:link controller="user">User</g:link></li>
 				</ul>
 			</div>
 			 -->

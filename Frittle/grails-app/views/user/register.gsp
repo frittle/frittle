@@ -30,44 +30,10 @@
 		<g:form method="post" action="register">
 			<g:hiddenField name="id" value="${userInstance?.id}" />
 			<g:hiddenField name="version" value="${userInstance?.version}" />
-			<div
-				class="fieldcontain ${hasErrors(bean: userInstance, field: 'login', 'error')} required">
-				<label for="login"> <g:message code="user.login.label"
-						default="Login" /> <span class="required-indicator">*</span>
-				</label>
-				<g:textField name="login" maxlength="15"
-					required=""
-					value="${user?.login}" />
-			</div>
-
-			<div
-				class="fieldcontain ${hasErrors(bean: userInstance, field: 'password', 'error')} required">
-				<label for="password"> <g:message code="user.password.label"
-						default="Password" /> <span class="required-indicator">*</span>
-				</label>
-				<g:passwordField name="password" maxlength="15"
-					required=""
-					value="${user?.password}" />
-			</div>
-
-			<div
-				class="fieldcontain ${hasErrors(bean: userInstance, field: 'firstname', 'error')} required">
-				<label for="firstname"> <g:message
-						code="user.firstname.label" default="Firstname" /> <span
-					class="required-indicator">*</span>
-				</label>
-				<g:textField name="firstname" required=""
-					value="${user?.firstname}" />
-			</div>
-
-			<div
-				class="fieldcontain ${hasErrors(bean: userInstance, field: 'lastname', 'error')} required">
-				<label for="lastname"> <g:message code="user.lastname.label"
-						default="Lastname" /> <span class="required-indicator">*</span>
-				</label>
-				<g:textField name="lastname" required=""
-					value="${user?.lastname}" />
-			</div>
+			
+			<fieldset class="form">
+				<g:render template="form"/>
+			</fieldset>
 			
 			<br>
 

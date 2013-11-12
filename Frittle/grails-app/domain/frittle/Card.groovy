@@ -6,6 +6,7 @@ class Card {
 	String usernameShort
 	String text
 	String discipline
+	String column
 	
     static constraints = {
     }

@@ -1,5 +1,7 @@
 package frittle
 
+import java.util.List;
+
 class User {
 	
 	String login
@@ -7,6 +9,7 @@ class User {
 	String firstname
 	String lastname
 
+	List dashboards
 	static hasMany = [dashboards: Dashboard]
 	
     static constraints = {

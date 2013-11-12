@@ -33,6 +33,15 @@
 				<fieldset class="form">
 					<g:render template="form"/>
 				</fieldset>
+				
+				<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'dashboards', 'error')} ">
+					<label for="dashboards">
+						<g:message code="user.dashboards.label" default="Dashboards" />
+		
+					</label>
+					<g:select name="dashboards" from="${frittle.Dashboard.list()}" multiple="multiple" optionKey="id" size="5" value="${userInstance?.dashboards*.id}" class="many-to-many"/>
+				</div>
+				
 				<fieldset class="buttons">
 					<g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
 					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" formnovalidate="" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
