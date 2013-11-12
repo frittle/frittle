@@ -13,7 +13,15 @@
 		<g:message code="user.password.label" default="Password" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="password" maxlength="15" pattern="${userInstance.constraints.password.matches}" required="" value="${userInstance?.password}"/>
+	<g:passwordField name="password" maxlength="15" pattern="${userInstance.constraints.password.matches}" required="" value="${userInstance?.password}"/>
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'confirm', 'error')} required">
+	<label for="confirm"> 
+		<g:message code="user.confirm.label" default="Confirm" /> 
+		<span class="required-indicator">*</span>
+	</label>
+	<g:passwordField name="confirm" maxlength="15" required="" value="${userInstance?.password}" />
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'firstname', 'error')} required">
@@ -32,6 +40,7 @@
 	<g:textField name="lastname" required="" value="${userInstance?.lastname}"/>
 </div>
 
+<!--  
 <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'dashboards', 'error')} ">
 	<label for="dashboards">
 		<g:message code="user.dashboards.label" default="Dashboards" />
@@ -39,4 +48,5 @@
 	</label>
 	<g:select name="dashboards" from="${frittle.Dashboard.list()}" multiple="multiple" optionKey="id" size="5" value="${userInstance?.dashboards*.id}" class="many-to-many"/>
 </div>
+-->
 

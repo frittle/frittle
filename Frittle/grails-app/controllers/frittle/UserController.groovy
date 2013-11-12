@@ -7,23 +7,21 @@ class UserController {
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"] 
 
 	def register = {
+		def userdata = new User()
 		if(request.method == 'POST') { 
-			def usr = new User(params)
-			usr.save()
-			session.user = usr;
-			redirect(controller:"dashboard")
-			/*
 			def usr = new User(params)
 			if(usr.password != params.confirm) {
 				usr.errors.rejectValue("password", "user.password.dontmatch")
-				return [user:usr]
+				return [userInstance:usr]
 			} else if(usr.save()) {
 				session.user = usr;
 				redirect(controller:"dashboard")
 			} else {
-				return [user: usr]
+				return [userInstance: usr]
 			}
-			*/
+			
+		} else {
+			render(view:'/user/register', model:[userInstance:userdata])
 		}
 	}
 	
@@ -33,12 +31,16 @@ class UserController {
 				session.user = cmd.getUser()
 				redirect (controller:'dashboard')
 			} else {
-				render(view:'/dashboard/list', model:[loginCmd:cmd])
+				render(view:'/dashboard/list', model:[loginCmd:cmd, dashboardInstanceTotal: Dashboard.count()])
 			}
 		} else {
-			render(view:'/dashboard/list')
+			render(view:'/dashboard/list', model:[dashboardInstanceTotal: Dashboard.count()])
 		}
-		
+	}
+	
+	def logout = {
+		session.user = null
+		render(view:'/dashboard/list', model:[dashboardInstanceTotal: Dashboard.count()])
 	}
 	
     def index() {
