@@ -40,13 +40,3 @@
 	<g:textField name="lastname" required="" value="${userInstance?.lastname}"/>
 </div>
 
-<!--  
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'dashboards', 'error')} ">
-	<label for="dashboards">
-		<g:message code="user.dashboards.label" default="Dashboards" />
-		
-	</label>
-	<g:select name="dashboards" from="${frittle.Dashboard.list()}" multiple="multiple" optionKey="id" size="5" value="${userInstance?.dashboards*.id}" class="many-to-many"/>
-</div>
--->
-
