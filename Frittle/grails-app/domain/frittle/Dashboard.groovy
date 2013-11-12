@@ -5,6 +5,9 @@ class Dashboard {
 	List cards 
 	static hasMany = [cards: Card]
 	
+	List users
+	static belongsTo = [users:User]
+	
 	String title
 	String author
 	String email
