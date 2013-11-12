@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="layout" content="main"/>
+		<meta name="layout" content="jigmain"/>
 		<title>Welcome to Grails</title>
 		<style type="text/css" media="screen">
 			#status {
@@ -82,7 +82,7 @@
 	</head>
 	<body>
 		<div id="page-body" role="main">
-			<h1>Welcome to JIGG</h1>
+			<h1>Welcome to JIG</h1>
 			<div id="controller-list" role="navigation">
 				<h2>Maintenance</h2>
 				<ul>
