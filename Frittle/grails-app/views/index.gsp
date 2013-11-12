@@ -82,6 +82,9 @@
 			td.center {
 				text-align: center;
 			}
+			th:hover, tr:hover {
+				background: transparent;
+			}
 			table.login {
 				width:400px;
 				border: 0px;

@@ -40,7 +40,7 @@ class UserController {
 	
 	def logout() {
 		session.user = null
-		render(view:'/dashboard/list', model:[dashboardInstanceTotal: Dashboard.count()])
+		render(view:'/index')
 	}
 	
     def index() {

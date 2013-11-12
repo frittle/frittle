@@ -42,9 +42,9 @@ body {
 	margin: 0 auto;
 	max-width: 960px;
 	overflow-x: hidden; /* prevents box-shadow causing a horizontal scrollbar in firefox when viewport < 960px wide */
-	   -moz-box-shadow: 0 0 0.3em #255b17;
-	-webkit-box-shadow: 0 0 0.3em #255b17;
-	        box-shadow: 0 0 0.3em #255b17;
+	   -moz-box-shadow: 0 0 0.3em #0066ff;
+	-webkit-box-shadow: 0 0 0.3em #0066ff;
+	        box-shadow: 0 0 0.3em #0066ff;
 }
 
 #grailsLogo {
@@ -55,7 +55,7 @@ body {
 .ie6 body,
 .ie7 body,
 .ie8 body {
-	border-color: #255b17;
+	border-color: #0066ff;
 	border-style: solid;
 	border-width: 0 1px;
 }
@@ -65,7 +65,7 @@ body {
 }
 
 a:link, a:visited, a:hover {
-	color: #48802c;
+	color: #1177ff;
 }
 
 a:hover, a:active {
@@ -73,7 +73,7 @@ a:hover, a:active {
 }
 
 h1 {
-	color: #48802c;
+	color: #1177ff;
 	font-weight: normal;
 	font-size: 1.25em;
 	margin: 0.8em 0 0.3em 0;
@@ -118,7 +118,7 @@ img {
 }
 
 .footer a {
-	color: #255b17;
+	color: #0066ff;
 }
 
 .spinner {
@@ -283,7 +283,7 @@ input:focus, select:focus, textarea:focus {
 }
 
 .required-indicator {
-	color: #48802C;
+	color: #00aaff;
 	display: inline-block;
 	font-weight: bold;
 	margin-left: 0.3em;
@@ -335,7 +335,7 @@ fieldset.embedded legend {
 }
 
 .message {
-	background: #f3f3ff;
+	background: #eeeeff;
 	border: 1px solid #b2d1ff;
 	color: #006dba;
 	   -moz-box-shadow: 0 0 0.25em #b2d1ff;
@@ -476,7 +476,7 @@ th.desc a {
 }
 
 th:hover, tr:hover {
-	background: #E1F2B6;
+	background: #eeeeff;
 }
 
 /* PAGINATION */
