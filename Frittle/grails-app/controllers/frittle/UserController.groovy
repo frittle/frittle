@@ -4,7 +4,7 @@ import org.springframework.dao.DataIntegrityViolationException
 
 class UserController {
 
-    static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+    static allowedMethods = [save: "POST", update: "POST", delete: "POST"] 
 
 	def register = {
 		if(request.method == 'POST') { 
@@ -25,6 +25,20 @@ class UserController {
 			}
 			*/
 		}
+	}
+	
+	def login = { LoginCommand cmd ->
+		if(request.method == 'POST') {
+			if(!cmd.hasErrors()) {
+				session.user = cmd.getUser()
+				redirect (controller:'dashboard')
+			} else {
+				render(view:'/dashboard/list', model:[loginCmd:cmd])
+			}
+		} else {
+			render(view:'/dashboard/list')
+		}
+		
 	}
 	
     def index() {
