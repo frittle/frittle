@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="layout" content="main">
+		<meta name="layout" content="jigmain">
 		<g:set var="entityName" value="${message(code: 'dashboard.label', default: 'Dashboard')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>

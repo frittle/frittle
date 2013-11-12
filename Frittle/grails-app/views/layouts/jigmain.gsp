@@ -36,6 +36,45 @@
 	</div>
 	<g:javascript library="application" />
 	<r:layoutResources />
+	<div id="loginBox" class="loginBox">
+		<g:if test="${session?.user}">
+			<div style="margin-top: 20px">
+				<div style="float: right;">
+					<a href="#">Profile</a> |
+					<g:link controller="user" action="logout">Logout</g:link>
+				</div>
+
+				Welcome back <span id="userFirstname">
+					${session?.user?.firstname}!
+				</span> <br>
+				<br>
+			</div>
+		</g:if>
+		<g:else>
+			<g:form name="loginForm" url="[controller:'user', action:'login']">
+				<div>Username:</div>
+				<g:textField name="login"></g:textField>
+				<div>Password:</div>
+				<g:passwordField name="password" />
+				<input type="submit" value="Login" />
+			</g:form>
+			<g:renderErrors bean="${loginCmd}"></g:renderErrors>
+		</g:else>
+	</div>
+	
+	<div id="navPane">
+		<g:if test="${session.user}">
+			<ul>
+				<li><g:link controller="dashboard" action="list"></g:link></li>
+			</ul>
+		</g:if>
+		<g:else>
+			<div id="registerPane">
+				Need an account?
+				<g:link controller="user" action="register">Signup now</g:link>
+			</div>
+		</g:else>
+	</div>
 
 </body>
 </html>
