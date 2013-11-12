@@ -45,6 +45,8 @@
 						<td>${fieldValue(bean: dashboardInstance, field: "description")}</td>
 					
 						<td>${fieldValue(bean: dashboardInstance, field: "email")}</td>
+						
+						<td>${fieldValue(bean: dashboardInstance, field: "users")}</td>
 					
 					</tr>
 				</g:each>
