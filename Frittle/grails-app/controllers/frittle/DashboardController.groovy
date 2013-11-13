@@ -11,8 +11,13 @@ class DashboardController {
     }
 
     def list(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        [dashboardInstanceList: Dashboard.list(params), dashboardInstanceTotal: Dashboard.count()]
+		def criteria = Dashboard.withCriteria {
+			users {
+				eq('login', session.user.login)
+			}
+		}
+		def dashboards = criteria.findAll()
+		[dashboardInstanceList: dashboards, dashboardInstanceTotal: Dashboard.count()]
     }
 
     def create() {

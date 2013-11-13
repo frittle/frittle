@@ -8,6 +8,8 @@ class Card {
 	String discipline
 	String column
 	
+	static belongsTo = Dashboard
+	
     static constraints = {
     }
 }

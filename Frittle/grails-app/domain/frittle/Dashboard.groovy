@@ -3,10 +3,9 @@ package frittle
 class Dashboard {
 
 	List cards 
-	static hasMany = [cards: Card]
+	static hasMany = [cards: Card, users: User]
 	
-	List users
-	static belongsTo = [users:User]
+	static belongsTo = User
 	
 	String title
 	String author
