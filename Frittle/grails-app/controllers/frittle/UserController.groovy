@@ -32,10 +32,9 @@ class UserController {
 				redirect (controller:'dashboard')
 			} else {
 				render(view:'/index',  model:[message: "Inlogdata is incorrect..."])
-
 			}
 		} else {
-			render(view:'/dashboard/list', model:[dashboardInstanceTotal: Dashboard.count()])
+			render(view:'/index',  model:[message: "Please log in..."])
 		}
 	}
 	
