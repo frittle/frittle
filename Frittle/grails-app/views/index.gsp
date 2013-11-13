@@ -85,9 +85,11 @@
 			th:hover, tr:hover {
 				background: transparent;
 			}
+			table.noborder {
+				border: 0px;
+			}
 			table.login {
 				width:400px;
-				border: 0px;
 			}
 		</style>
 		
@@ -95,18 +97,24 @@
 	</head>
 	<body>
 		<div id="page-body" role="main">
-			<h1>Welcome to JIG</h1>
+			<table class="noborder">
+				<tr>
+					<td>
+						<img src="${resource(dir: 'images', file: 'jig_logo_l.png')}" alt="JIG" ALIGN="top"/>
+					</td>
+					<td>
+						<h1>Welcome to JIG</h1>
 			
-			<i>"In metalworking and woodworking, a jig is a type of custom-made tool used to control the location and/or motion of another tool. <br />
-			A jig's primary purpose is to provide repeatability, accuracy, and interchangeability in the manufacturing of products."</i><br />
+						<i>"In metalworking and woodworking, a jig is a type of custom-made tool used to control the location and/or motion of another tool. <br />
+						A jig's primary purpose is to provide repeatability, accuracy, and interchangeability in the manufacturing of products."</i><br />
+					</td>
+				</tr>
+			</table>
 			<br />
 			In other words; a jig is a tool helping an other tool to create the end-product. <br />
 			That is excactly what this tool does. JIG helps you to plan your development activities. <br />
 			Actually it is an ordinary Kanban-tool....
-			<br />
-					
-			
-			
+								
 			<div id="loginBox" class="loginBox">
 				<g:if test="${session?.user}">
 					<div style="margin-top: 20px">
@@ -131,7 +139,7 @@
 		<g:else>
 			<g:form name="loginForm" url="[controller:'user', action:'login']">
 
-			<table class="login">
+			<table class="login noborder">
 			<tr><td  class="center">
 			<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'login', 'error')} required">
 				<label for="login"> <g:message code="user.login.label"
