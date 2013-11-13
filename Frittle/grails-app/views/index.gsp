@@ -123,68 +123,74 @@
 							<g:link controller="user" action="logout">Logout</g:link>
 						</div>
 
-					You are logged in as : <span id="userFirstname">	${session?.user?.firstname}	</span> <br>
-				<br>
+						You are logged in as : <span id="userFirstname">	${session?.user?.firstname}	</span> <br>
+						<br>
 
-				<div id="controller-list" role="navigation">
-					<h2>Go to:</h2>
-					<ul>
-						<li class="controller"><g:link controller="dashboard">Dashboards</g:link></li>
-						<li class="controller"><g:link controller="card">Cards</g:link></li>
-					</ul>
-				</div>
+						<div id="controller-list" role="navigation">
+							<h2>Go to:</h2>
+							<ul>
+								<li class="controller"><g:link controller="dashboard">Dashboards</g:link></li>
+								<li class="controller"><g:link controller="card">Cards</g:link></li>
+							</ul>
+						</div>
 
-			</div>
-		</g:if>
-		<g:else>
-			<g:form name="loginForm" url="[controller:'user', action:'login']">
+					</div>
+				</g:if>
+				<g:else>
+					<g:form name="loginForm" url="[controller:'user', action:'login']">
 
-			<table class="login noborder">
-			<tr><td  class="center">
-			<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'login', 'error')} required">
-				<label for="login"> <g:message code="user.login.label"
-						default="Login" /> <span class="required-indicator">*</span>
-				</label>
-				<g:textField name="login" maxlength="15"
-					required=""
-					value="${user?.login}" />
-			</div>
-			</td></tr>
-			<tr><td class="center">
-			<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'password', 'error')} required">
-				<label for="password"> <g:message code="user.password.label"
-						default="Password" /> <span class="required-indicator">*</span>
-				</label>
-				<g:passwordField name="password" maxlength="15"
-					required=""
-					value="${user?.password}" />
-			</div>
-			</td></tr>
-			<tr><td class="center">
+					<table class="login noborder">
+					<tr><td  class="center">
+						<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'login', 'error')} required">
+							<label for="login"> <g:message code="user.login.label"
+								default="Login" /> <span class="required-indicator">*</span>
+							</label>
+							<g:textField name="login" maxlength="15"
+								required=""
+								value="${user?.login}" />
+						</div>
+					</td></tr>
+					<tr><td class="center">
+						<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'password', 'error')} required">
+							<label for="password"> <g:message code="user.password.label"
+								default="Password" /> <span class="required-indicator">*</span>
+							</label>
+							<g:passwordField name="password" maxlength="15"
+								required=""
+								value="${user?.password}" />
+						</div>
+					</td></tr>
+					<tr><td class="center">
 			
-				<!--  <div>Username:</div>
-				<g:textField name="login"></g:textField>
-				<div>Password:</div>
-				<g:passwordField name="password" /> -->
+						<!--  <div>Username:</div>
+						<g:textField name="login"></g:textField>
+						<div>Password:</div>
+						<g:passwordField name="password" /> -->
 				
-				<input type="submit" value="Login" />
-			</td></tr>
-			</table>
+						<input type="submit" value="Login" />
+					</td></tr>
+				</table>
 			
 			
-			</g:form>
-			<g:renderErrors bean="${loginCmd}"></g:renderErrors>
-		</g:else>
-	</div>
-	
-	<div id="navPane">
-		<g:if test="${!session.user}">
-			<div id="registerPane">
-				<br/>Need an account?
-				<g:link controller="user" action="register">Signup now</g:link>
+				</g:form>
+				
+				<g:renderErrors bean="${loginCmd}"></g:renderErrors>
+				
+				<g:if test="${message}">
+					<div class="errors" role="status">${message}</div>
+				</g:if>
+				
+			</g:else>
 			</div>
-		</g:if>
-	</div>
+	
+			<div id="navPane">
+				<g:if test="${!session.user}">
+					<div id="registerPane">
+						<br/>Need an account?
+						<g:link controller="user" action="register">Signup now</g:link>
+					</div>
+				</g:if>
+			</div>
 	
 			<!-- 
 			<div id="controller-list" role="navigation">

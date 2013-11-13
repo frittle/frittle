@@ -31,10 +31,10 @@ class UserController {
 				session.user = cmd.getUser()
 				redirect (controller:'dashboard')
 			} else {
-				render(view:'/dashboard/list', model:[loginCmd:cmd, dashboardInstanceTotal: Dashboard.count()])
+				render(view:'/index',  model:[message: "Inlogdata is incorrect..."])
 			}
 		} else {
-			render(view:'/dashboard/list', model:[dashboardInstanceTotal: Dashboard.count()])
+			render(view:'/index',  model:[message: "Please log in..."])
 		}
 	}
 	
