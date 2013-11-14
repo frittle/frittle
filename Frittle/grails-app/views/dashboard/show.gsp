@@ -6,6 +6,69 @@
 		<meta name="layout" content="jigmain">
 		<g:set var="entityName" value="${message(code: 'dashboard.label', default: 'Dashboard')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
+<style type="text/css">
+
+.cardcolumn {
+    float: left;
+    width: 220px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    -moz-border-radius: 4px;
+	border-radius: 4px;
+    padding: 5px;
+    margin: 5px;
+    background-color: #efefef;
+}
+.columnheader {
+    padding: 5px;
+    margin: 5px;
+    color: #006dba;
+    font-weight: bold;
+}
+
+.card {
+    width: 200px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    -moz-border-radius: 4px;
+	border-radius: 4px;
+/*     padding: 5px; */
+    margin: 5px; 
+    background-color: white;
+    min-height: 50px;
+}
+
+.cardheader {
+    width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    background-color: blue;
+    height: 30px;
+}
+
+.userbox {
+    float: right;
+    position: relative;
+/*     width: 20px; */
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    -moz-border-radius: 4px;
+	border-radius: 4px;
+    padding: 1px;
+    margin: 1px;
+    background-color: #cccccc;
+}
+
+.activitytype {
+	background-color: blue;
+	color: blue;
+}
+
+</style>		
 	</head>
 	<body>
 		<a href="#show-dashboard" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
@@ -17,58 +80,97 @@
 			</ul>
 		</div>
 		<div id="show-dashboard" class="content scaffold-show" role="main">
-			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
+<%--			<h1><g:message code="default.show.label" args="[entityName]" /></h1>--%>
+			
+			<h1><g:fieldValue bean="${dashboardInstance}" field="title"/></h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 			<ol class="property-list dashboard">
 			
-				<g:if test="${dashboardInstance?.title}">
-				<li class="fieldcontain">
-					<span id="title-label" class="property-label"><g:message code="dashboard.title.label" default="Title" /></span>
-					
-						<span class="property-value" aria-labelledby="title-label"><g:fieldValue bean="${dashboardInstance}" field="title"/></span>
-					
-				</li>
-				</g:if>
+<%--				<g:if test="${dashboardInstance?.title}">--%>
+<%--				<li class="fieldcontain">--%>
+<%--					<span id="title-label" class="property-label"><g:message code="dashboard.title.label" default="Title" /></span>--%>
+<%--					--%>
+<%--						<span class="property-value" aria-labelledby="title-label"><g:fieldValue bean="${dashboardInstance}" field="title"/></span>--%>
+<%--					--%>
+<%--				</li>--%>
+<%--				</g:if>--%>
 			
-				<g:if test="${dashboardInstance?.author}">
-				<li class="fieldcontain">
-					<span id="author-label" class="property-label"><g:message code="dashboard.author.label" default="Author" /></span>
-					
-						<span class="property-value" aria-labelledby="author-label"><g:fieldValue bean="${dashboardInstance}" field="author"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${dashboardInstance?.description}">
-				<li class="fieldcontain">
-					<span id="description-label" class="property-label"><g:message code="dashboard.description.label" default="Description" /></span>
-					
-						<span class="property-value" aria-labelledby="description-label"><g:fieldValue bean="${dashboardInstance}" field="description"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${dashboardInstance?.email}">
-				<li class="fieldcontain">
-					<span id="email-label" class="property-label"><g:message code="dashboard.email.label" default="Email" /></span>
-					
-						<span class="property-value" aria-labelledby="email-label"><g:fieldValue bean="${dashboardInstance}" field="email"/></span>
-					
-				</li>
-				</g:if>
+<%--				<g:if test="${dashboardInstance?.author}">--%>
+<%--				<li class="fieldcontain">--%>
+<%--					<span id="author-label" class="property-label"><g:message code="dashboard.author.label" default="Author" /></span>--%>
+<%--					--%>
+<%--						<span class="property-value" aria-labelledby="author-label"><g:fieldValue bean="${dashboardInstance}" field="author"/></span>--%>
+<%--					--%>
+<%--				</li>--%>
+<%--				</g:if>--%>
+<%--			--%>
+<%--				<g:if test="${dashboardInstance?.description}">--%>
+<%--				<li class="fieldcontain">--%>
+<%--					<span id="description-label" class="property-label"><g:message code="dashboard.description.label" default="Description" /></span>--%>
+<%--					--%>
+<%--						<span class="property-value" aria-labelledby="description-label"><g:fieldValue bean="${dashboardInstance}" field="description"/></span>--%>
+<%--					--%>
+<%--				</li>--%>
+<%--				</g:if>--%>
+<%--			--%>
+<%--				<g:if test="${dashboardInstance?.email}">--%>
+<%--				<li class="fieldcontain">--%>
+<%--					<span id="email-label" class="property-label"><g:message code="dashboard.email.label" default="Email" /></span>--%>
+<%--					--%>
+<%--						<span class="property-value" aria-labelledby="email-label"><g:fieldValue bean="${dashboardInstance}" field="email"/></span>--%>
+<%--					--%>
+<%--				</li>--%>
+<%--				</g:if>--%>
 			
 				<g:if test="${dashboardInstance?.cards}">
+
 				<li class="fieldcontain">
-					<span id="cards-label" class="property-label"><g:message code="dashboard.cards.label" default="Cards" /></span>
-					
-						<g:each in="${dashboardInstance.cards}" var="c">
-						<span class="property-value" aria-labelledby="cards-label"><g:link controller="card" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></span>
-						</g:each>
-					
+					<%--						<g:each in="${dashboardInstance.cards}" var="c">--%> <%--						<span class="property-value" aria-labelledby="cards-label"><g:link controller="card" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></span>--%>
+					<%--						</g:each>				--%>
+					<div id="container">
+						<div id="todo" class="cardcolumn">
+							<div class="columnheader">Todo</div>
+							<g:each in="${dashboardInstance.cards}" var="c">
+								<g:if test="${c.column == 'TODO'}">
+									<div class="card">
+										<span class="property-value" aria-labelledby="cards-label"><g:link controller="card" action="show" id="${c.id}">
+												${c?.encodeAsHTML()}
+											</g:link></span>
+									</div>
+								</g:if>
+							</g:each>
+						</div>
+						<div id="doing" class="cardcolumn">
+							<div class="columnheader">Doing</div>
+							<g:each in="${dashboardInstance.cards}" var="c">
+								<g:if test="${c.column == 'DOING'}">
+									<div class="card">
+										<span class="property-value" aria-labelledby="cards-label"><g:link controller="card" action="show" id="${c.id}">
+												${c?.encodeAsHTML()}
+											</g:link></span>
+									</div>
+								</g:if>
+							</g:each>
+						</div>
+						<div id="done" class="cardcolumn">
+							<div class="columnheader">Done</div>
+							<g:each in="${dashboardInstance.cards}" var="c">
+								<g:if test="${c.column == 'DONE'}">
+									<div class="card">
+										<span class="property-value" aria-labelledby="cards-label"><g:link controller="card" action="show" id="${c.id}">
+												${c?.encodeAsHTML()}
+											</g:link></span>
+									</div>
+								</g:if>
+							</g:each>
+						</div>
+					</div>
 				</li>
-				</g:if>
+
+
+			</g:if>
 			
 			</ol>
 			<g:form>
