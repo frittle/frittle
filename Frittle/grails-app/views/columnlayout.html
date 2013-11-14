@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cardlayout - voorbeeld</title>
+<style type="text/css">
+body {
+	background-color: silver;
+}
+
+.cardcolumn {
+    float: left;
+    width: 220px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    -moz-border-radius: 5px;
+	border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    background-color: #6666ff;
+}
+.columnheader {
+
+    padding: 5px;
+    margin: 5px;
+    color: white;
+}
+
+.card {
+    width: 200px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    -moz-border-radius: 5px;
+	border-radius: 5px;
+/*     padding: 5px; */
+    margin: 5px; 
+    background-color: white;
+    min-height: 50px;
+}
+
+.cardheader {
+    width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    background-color: blue;
+    height: 30px;
+}
+
+.userbox {
+    float: right;
+    position: relative;
+/*     width: 20px; */
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    -moz-border-radius: 5px;
+	border-radius: 5px;
+    padding: 1px;
+    margin: 1px;
+    background-color: #cccccc;
+}
+
+.activitytype {
+	background-color: blue;
+	color: blue;
+}
+
+</style>
+</head>
+<body>
+<div id="container">
+	<div id="todo" class="cardcolumn">
+		<div class="columnheader">Todo</div>
+		<div class="card">
+			<div class="cardheader">
+				<div class="userbox">EV</div>
+				<div class="userbox">MD</div>
+			</div>Maken aanslag</div>
+		<div class="card">Beheren aanslag</div>
+		<div class="card">Raadplegen Aanslagmodel
+
+		</div>
+	</div>
+	<div id="doing" class="cardcolumn">
+		<div class="columnheader">Doing</div>
+	</div>
+	<div id="done" class="cardcolumn">
+		<div class="columnheader">Done</div>
+	</div>
+</div>
+</body>
+</html>
