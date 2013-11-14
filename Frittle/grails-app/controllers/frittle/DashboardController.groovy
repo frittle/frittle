@@ -1,5 +1,7 @@
 package frittle
 
+import grails.converters.JSON;
+
 import org.springframework.dao.DataIntegrityViolationException
 
 class DashboardController {
@@ -23,10 +25,24 @@ class DashboardController {
     def create() {
         [dashboardInstance: new Dashboard(params)]
     }
-
+	
+	def findDashboardsByUser() {
+		def criteria = Dashboard.withCriteria {
+			users {
+				eq('login', session.user.login)
+			}
+		}
+		def dashboards = criteria.findAll()
+		return dashboards
+	} 
+ 
     def save() {
+		User user = User.findByLogin(session.user?.login)
+		
         def dashboardInstance = new Dashboard(params)
-        if (!dashboardInstance.save(flush: true)) {
+		user.dashboards += dashboardInstance
+		
+        if (!user.save(flush: true)) {
             render(view: "create", model: [dashboardInstance: dashboardInstance])
             return
         }
@@ -42,9 +58,24 @@ class DashboardController {
             redirect(action: "list")
             return
         }
-
         [dashboardInstance: dashboardInstance]
     }
+	
+	def showIt(Long id) {
+		def dashboardInstance = Dashboard.get(id)
+		if (!dashboardInstance) {
+			flash.message = message(code: 'default.not.found.message', args: [message(code: 'dashboard.label', default: 'Dashboard'), id])
+			redirect(action: "list")
+			return
+		}
+		render (dashboardInstance as JSON)
+	}
+	
+	def processJSON() {
+		Card object = JSON.parse(params.jsondata)
+		println object.username
+		render (object as JSON)
+	}
 
     def edit(Long id) {
         def dashboardInstance = Dashboard.get(id)
@@ -104,4 +135,5 @@ class DashboardController {
             redirect(action: "show", id: id)
         }
     }
+	
 }

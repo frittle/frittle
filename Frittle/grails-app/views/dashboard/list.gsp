@@ -56,5 +56,40 @@
 				<g:paginate total="${dashboardInstanceTotal}" />
 			</div>
 		</div>
+		<div id="clickit" onclick="">
+			CLICK HERE
+		</div>
+		
+		<div id="clickitremote" onclick="clickitremote()">
+			CLICK REMOTE
+		</div>
+		
+		<div id="sendJSON" onclick="sendJSON()">
+			SEND JSON OBJECT
+		</div>
+		
+		<g:javascript>
+			function clickitremote() {
+				<g:remoteFunction action="showIt" id="1"  onSuccess="great(data,textStatus);" />
+			}
+    		
+    		function sendJSON() {
+    			var userdata = {
+    				'username' : "marcdix",
+    				'usernameShort' : "md"
+    			}
+    			
+    			var jsondata = JSON.stringify(userdata)
+    			alert(jsondata)
+    			
+    			<g:remoteFunction action="processJSON" params="'jsondata='+jsondata" onSuccess="great(data,textStatus);" />
+    		}
+    		
+    		function great(data,textStatus) {
+        		alert('data: ' + JSON.stringify(data) + " - " + 'textStatus: ' + textStatus) 
+    		}
+		</g:javascript>
+		
+		
 	</body>
 </html>

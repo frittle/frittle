@@ -12,29 +12,31 @@
 <title><g:layoutTitle default="JIG" /></title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon"
-	href="${resource(dir: 'images', file: 'favicon.ico')}"
-	type="image/x-icon">
+        href="${resource(dir: 'images', file: 'favicon.ico')}"
+        type="image/x-icon">
 <link rel="apple-touch-icon"
-	href="${resource(dir: 'images', file: 'apple-touch-icon.png')}">
+        href="${resource(dir: 'images', file: 'apple-touch-icon.png')}">
 <link rel="apple-touch-icon" sizes="114x114"
-	href="${resource(dir: 'images', file: 'apple-touch-icon-retina.png')}">
+        href="${resource(dir: 'images', file: 'apple-touch-icon-retina.png')}">
 <link rel="stylesheet" href="${resource(dir: 'css', file: 'jigmain.css')}"
-	type="text/css">
+        type="text/css">
 <link rel="stylesheet"
-	href="${resource(dir: 'css', file: 'jigmobile.css')}" type="text/css">
+        href="${resource(dir: 'css', file: 'jigmobile.css')}" type="text/css">
 <g:layoutHead />
+<!--  necessary to run jquery in GSPs! -->
+<g:javascript library='jquery'/>
 <r:layoutResources />
 </head>
 <body>
-	<div id="grailsLogo" role="banner">
-		<img src="${resource(dir: 'images', file: 'jig_logo.png')}" alt="JIG" />
-	</div>
-	<g:layoutBody />
-	<div class="footer" role="contentinfo"></div>
-	<div id="spinner" class="spinner" style="display: none;">
-		<g:message code="spinner.alt" default="Loading&hellip;" />
-	</div>
-	<g:javascript library="application" />
-	<r:layoutResources />
+        <div id="grailsLogo" role="banner">
+                <img src="${resource(dir: 'images', file: 'jig_logo.png')}" alt="JIG" />
+        </div>
+        <g:layoutBody />
+        <div class="footer" role="contentinfo"></div>
+        <div id="spinner" class="spinner" style="display: none;">
+                <g:message code="spinner.alt" default="Loading&hellip;" />
+        </div>
+        <g:javascript library="application" />
+        <r:layoutResources />
 </body>
 </html>
