@@ -242,8 +242,8 @@ function drop(ev) {
 	ev.target.appendChild(card);
 
 	alert("card met id = '" + card.id + "' is geplaatst in kolom '" + ev.target.id + "'. \r\nDit doorgeven aan de server in function DashboardController.processCardMove() mbv een jsonobject");
-	
-//alleen de id is bekend op de client, de card is er niet...
+// LEO A:
+//alleen de id is bekend op de client, de card is er niet...(grails op de server..)
 //Er zijn volgens mij 3 oplossingen :
 //1) er moet dan vooraf een JSON object worden meegegeven met het gehele dashboard en alle kaarten...
 // (grails is dan niet meer nodig --> thick client), dan gehele card teruggeven aan server en opslaan
