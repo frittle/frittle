@@ -163,11 +163,11 @@
                     <%--                        <g:each in="${dashboardInstance.cards}" var="c">--%> <%--                       <span class="property-value" aria-labelledby="cards-label"><g:link controller="card" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></span>--%>
                     <%--                        </g:each>               --%>
                     <div id="container">
-                        <div id="todo" class="cardcolumn actie">
+                        <div id="todo" class="cardcolumn actie" ondrop="drop(event)" ondragover="allowDrop(event)">
                             <div class="columnheader">Actie</div>
                             <g:each in="${dashboardInstance.cards}" var="c">
                                 <g:if test="${c.column == 'TODO'}">
-                                    <div class="card">
+                                    <div id="${c.id}"  class="card" draggable="true" ondragstart="drag(event)">
                                         <span class="property-value" aria-labelledby="cards-label"><g:link controller="card" action="show" id="${c.id}">
                                                 ${c?.text.encodeAsHTML()}
                                             </g:link></span>
@@ -175,11 +175,11 @@
                                 </g:if>
                             </g:each>
                         </div>
-                        <div id="doing" class="cardcolumn actief">
+                        <div id="doing" class="cardcolumn actief" ondrop="drop(event)" ondragover="allowDrop(event)">
                             <div class="columnheader">Actief</div>
                             <g:each in="${dashboardInstance.cards}" var="c">
                                 <g:if test="${c.column == 'DOING'}">
-                                    <div class="card">
+                                    <div id="${c.id}"  class="card" draggable="true" ondragstart="drag(event)">
                                         <span class="property-value" aria-labelledby="cards-label"><g:link controller="card" action="show" id="${c.id}">
                                                 ${c?.text.encodeAsHTML()}
                                             </g:link></span>
@@ -187,11 +187,11 @@
                                 </g:if>
                             </g:each>
                         </div>
-                        <div id="done" class="cardcolumn voltooid">
+                        <div id="done" class="cardcolumn voltooid" ondrop="drop(event)" ondragover="allowDrop(event)">
                             <div class="columnheader">Voltooid</div>
                             <g:each in="${dashboardInstance.cards}" var="c">
                                 <g:if test="${c.column == 'DONE'}">
-                                    <div class="card">
+                                    <div id="${c.id}"  class="card" draggable="true" ondragstart="drag(event)">
                                         <span class="property-value" aria-labelledby="cards-label"><g:link controller="card" action="show" id="${c.id}">
                                                 ${c?.text.encodeAsHTML()}
                                             </g:link></span>
@@ -203,8 +203,8 @@
                         
                         <g:if test="${dashboardInstance?.users}">
                             <div id="users" class="usercolumn">
-                                <g:each in="${dashboardInstance.user}" var="u">
-                                    <div class="userbox">${u?.firstname.encodeAsHTML()}xx</div>
+                                <g:each in="${dashboardInstance.users}" var="u">
+                                    <div class="userbox">${u?.firstname.encodeAsHTML()}</div>
                                 </g:each>
                             </div>
                         </g:if>

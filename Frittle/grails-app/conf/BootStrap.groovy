@@ -7,17 +7,17 @@ class BootStrap {
 		// Check whether the test data already exists.
 		if (!User.count()) {
 			new User(login: "marcdix", password: "geheim1234", firstname: "marc", lastname: "dix", dashboards: [
-				new Dashboard(author: "Marc", title: "Frittle", description: "Frittle Dashboard", email: "marcdix0@gmail.com",
+				new Dashboard(author: "Marc", title: "Dagbord JIG", description: "Frittle Dashboard", email: "marcdix0@gmail.com",
 					cards: [
-						new Card(username: "marc", usernameShort: "MD", text: "bootstrap", discipline: "bouw", column: "TODO"),
-						new Card(username: "erik", usernameShort: "EV", text: "presentatie deel 3", discipline: "bouw", column: "TODO"),
-						new Card(username: "leo", usernameShort: "LA", text: "presentatie deel 4", discipline: "bouw", column: "TODO"),
-						new Card(username: "oscar", usernameShort: "AB", text: "ontwerp", discipline: "ontwerp", column: "TODO"),
-						new Card(username: "marc", usernameShort: "MD", text: "domein model deel 2", discipline: "bouw", column: "DOING"),
-						new Card(username: "marc", usernameShort: "MD", text: "bootstrap data", discipline: "bouw", column: "DOING"),
-						new Card(username: "marc", usernameShort: "EV", text: "presentatie deel 1", discipline: "bouw", column: "DOING"),
-						new Card(username: "marc", usernameShort: "LA", text: "presentatie deel 2", discipline: "bouw", column: "DOING"),
-						new Card(username: "marc", usernameShort: "MD", text: "domein model deel 1", discipline: "bouw", column: "DONE")
+						new Card(username: "Marc", usernameShort: "MD", text: "bootstrap", discipline: "bouw", column: "TODO"),
+						new Card(username: "Erik", usernameShort: "EV", text: "presentatie deel 3", discipline: "bouw", column: "TODO"),
+						new Card(username: "Leo", usernameShort: "LA", text: "presentatie deel 4", discipline: "bouw", column: "TODO"),
+						new Card(username: "Oskar", usernameShort: "OB", text: "ontwerp", discipline: "ontwerp", column: "TODO"),
+						new Card(username: "Marc", usernameShort: "MD", text: "domein model deel 2", discipline: "bouw", column: "DOING"),
+						new Card(username: "Marc", usernameShort: "MD", text: "bootstrap data", discipline: "bouw", column: "DOING"),
+						new Card(username: "Marc", usernameShort: "EV", text: "presentatie deel 1", discipline: "bouw", column: "DOING"),
+						new Card(username: "Marc", usernameShort: "LA", text: "presentatie deel 2", discipline: "bouw", column: "DOING"),
+						new Card(username: "Marc", usernameShort: "MD", text: "domein model deel 1", discipline: "bouw", column: "DONE")
 						]
 					), 
 				new Dashboard(author: "Marc", title: "Other project", description: "Some other project", email: "marcdix0@gmail.com",
