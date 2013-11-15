@@ -228,27 +228,38 @@
 			</g:form>
 			
 <script>
-function allowDrop(ev)
-{
-ev.preventDefault();
+function allowDrop(ev) {
+	ev.preventDefault();
 }
-function disallowDrop(ev)
-//return true;
-//uitzoeken
-{
-	
-}
-function drag(ev)
-{
-ev.dataTransfer.setData("Text",ev.target.id);
+function drag(ev) {
+	ev.dataTransfer.setData("Text",ev.target.id);
 }
 
-function drop(ev)
-{
-ev.preventDefault();
-var data=ev.dataTransfer.getData("Text");
-ev.target.appendChild(document.getElementById(data));
+function drop(ev) {
+	ev.preventDefault();
+	var data=ev.dataTransfer.getData("Text");
+	var card = document.getElementById(data);
+	ev.target.appendChild(card);
+
+	alert("card met id = '" + card.id + "' is geplaatst in kolom '" + ev.target.id + "'. \r\nDit doorgeven aan de server in function DashboardController.processCardMove() mbv een jsonobject");
+	
+//alleen de id is bekend op de client, de card is er niet...
+//Er zijn volgens mij 3 oplossingen :
+//1) er moet dan vooraf een JSON object worden meegegeven met het gehele dashboard en alle kaarten...
+// (grails is dan niet meer nodig --> thick client), dan gehele card teruggeven aan server en opslaan
+//2) alleen de card.id (en nieuwe kolom) teruggeven naar de server, de server haalt de card op, werkt de card bij en slaat deze op 
+//3) (Wat onzinnig volgens mij...) Met de card.id de card ophalen van de server naar de client , card bijwerken met de nieuwe kolom, 
+//  dan de hele card teruggeven en opslaan
+
+//hieronder oplossing 2
+	var userdata = {
+		'id' : card.id,
+		'column' : ev.target.id
+	}
+	var jsondata = JSON.stringify(userdata)
+	<g:remoteFunction action="processCardMove" params="'jsondata='+jsondata"  />
 }
+
 </script>
 			
 		</div>

@@ -2,6 +2,7 @@ package frittle
 
 import grails.converters.JSON;
 
+import org.codehaus.groovy.grails.web.json.JSONObject
 import org.springframework.dao.DataIntegrityViolationException
 
 class DashboardController {
@@ -74,6 +75,16 @@ class DashboardController {
 	def processJSON() {
 		Card object = JSON.parse(params.jsondata)
 		println object.username
+		render (object as JSON)
+	}
+
+	def processCardMove() {
+		JSONObject  object = JSON.parse(params.jsondata)
+		String id  = object.getString("id")
+		String column  = object.getString("column")
+		
+		println "Card met id " + id + " is verplaatst naar kolom " + column + "!"
+		 
 		render (object as JSON)
 	}
 
