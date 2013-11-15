@@ -68,6 +68,8 @@
 	color: blue;
 }
 
+
+
 </style>		
 	</head>
 	<body>
@@ -130,11 +132,11 @@
 					<%--						<g:each in="${dashboardInstance.cards}" var="c">--%> <%--						<span class="property-value" aria-labelledby="cards-label"><g:link controller="card" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></span>--%>
 					<%--						</g:each>				--%>
 					<div id="container">
-						<div id="todo" class="cardcolumn">
+						<div id="todo" class="cardcolumn" ondrop="drop(event)" ondragover="allowDrop(event)">
 							<div class="columnheader">Todo</div>
 							<g:each in="${dashboardInstance.cards}" var="c">
 								<g:if test="${c.column == 'TODO'}">
-									<div class="card">
+									<div id="${c.id}"  class="card" draggable="true" ondragstart="drag(event)">
 										<span class="property-value" aria-labelledby="cards-label"><g:link controller="card" action="show" id="${c.id}">
 												${c?.encodeAsHTML()}
 											</g:link></span>
@@ -142,11 +144,11 @@
 								</g:if>
 							</g:each>
 						</div>
-						<div id="doing" class="cardcolumn">
+						<div id="doing" class="cardcolumn" ondrop="drop(event)" ondragover="allowDrop(event)">
 							<div class="columnheader">Doing</div>
 							<g:each in="${dashboardInstance.cards}" var="c">
 								<g:if test="${c.column == 'DOING'}">
-									<div class="card">
+									<div id="${c.id}" class="card" draggable="true" ondragstart="drag(event)">
 										<span class="property-value" aria-labelledby="cards-label"><g:link controller="card" action="show" id="${c.id}">
 												${c?.encodeAsHTML()}
 											</g:link></span>
@@ -154,11 +156,11 @@
 								</g:if>
 							</g:each>
 						</div>
-						<div id="done" class="cardcolumn">
+						<div id="done" class="cardcolumn" ondrop="drop(event)" ondragover="allowDrop(event)">
 							<div class="columnheader">Done</div>
 							<g:each in="${dashboardInstance.cards}" var="c">
 								<g:if test="${c.column == 'DONE'}">
-									<div class="card">
+									<div id="${c.id}"  class="card" draggable="true" ondragstart="drag(event)">
 										<span class="property-value" aria-labelledby="cards-label"><g:link controller="card" action="show" id="${c.id}">
 												${c?.encodeAsHTML()}
 											</g:link></span>
@@ -174,12 +176,40 @@
 			
 			</ol>
 			<g:form>
+			
+			
+			
 				<fieldset class="buttons">
 					<g:hiddenField name="id" value="${dashboardInstance?.id}" />
 					<g:link class="edit" action="edit" id="${dashboardInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
 					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
 				</fieldset>
 			</g:form>
+			
+<script>
+function allowDrop(ev)
+{
+ev.preventDefault();
+}
+function disallowDrop(ev)
+//return true;
+//uitzoeken
+{
+	
+}
+function drag(ev)
+{
+ev.dataTransfer.setData("Text",ev.target.id);
+}
+
+function drop(ev)
+{
+ev.preventDefault();
+var data=ev.dataTransfer.getData("Text");
+ev.target.appendChild(document.getElementById(data));
+}
+</script>
+			
 		</div>
 	</body>
 </html>
