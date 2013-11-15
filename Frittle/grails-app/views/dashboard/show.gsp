@@ -10,63 +10,61 @@
 
 .cardcolumn {
     float: left;
-    width: 220px;
-<%--    border-width: 1px;--%>
-<%--    border-style: solid;--%>
-<%--    border-color: black;--%>
-<%--    -moz-border-radius: 4px;--%>
-<%--    border-radius: 4px;--%>
-    padding: 5px;
-    margin: 5px;
+    width: 200px;
+    padding: 0px;
+    margin: 8px;
 }
 
 .usercolumn {
     float: left;
-    width: 120px;
-<%--    border-width: 1px;--%>
-<%--    border-style: solid;--%>
-<%--    border-color: black;--%>
-<%--    -moz-border-radius: 4px;--%>
-<%--    border-radius: 4px;--%>
+    width: 180px;
     padding: 5px;
     margin: 5px;
     background-color: #EC7404;
+    color: black;
+    text-align: center;
+}
+
+.actieheader {
+    color: black;
+    background-color: #FFE620;
 }
 
 .actie {
     color: black;
-    background-color: #FFE620;
-<%--    lichte kleur FEF5A6--%>
+    background-color: #FEF5A6;
+}
+
+.actiefheader {
+    color: white;
+    background-color: #8B4492;
 }
 
 .actief {
     color: white;
-    background-color: #8B4492;
-<%--    lichte kleur D1B4D3--%>    
+    background-color: #D1B4D3;
+}
+
+.voltooidheader {
+    color: white;
+    background-color: #67AF25;
 }
 
 .voltooid {
     color: white;
-    background-color: #67AF25;
-<%--    lichte kleur C2DFA7--%>      
+    background-color: #C2DFA7;
 }
-.
+
 .columnheader {
-    padding: 5px;
-    margin: 5px;
-    color: #006dba;
+    padding: 8px;
+    margin: 0px;
     font-weight: bold;
+    text-align: center;
 }
 
 .card {
-    width: 200px;
-<%--    border-width: 1px;--%>
-<%--    border-style: solid;--%>
-<%--    border-color: black;--%>
-<%--    -moz-border-radius: 4px;--%>
-<%--    border-radius: 4px;--%>
-/*     padding: 5px; */
-    margin: 5px; 
+    width: 184px;
+    margin: 8px; 
     background-color: white;
     min-height: 50px;
 }
@@ -83,23 +81,15 @@
 .userbox {
     float: left;
     position: relative;
-/*     width: 20px; */
-    border-width: 1px;
-    border-style: solid;
-    border-color: black;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-    padding: 1px;
-    margin: 1px;
-    background-color: #cccccc;
+    padding: 0px;
+    margin: 5px;
+    background-color: #ffffff;
 }
 
 .activitytype {
     background-color: blue;
     color: blue;
 }
-
-
 
 </style>		
 	</head>
@@ -121,50 +111,12 @@
 			</g:if>
 			<ol class="property-list dashboard">
 			
-<%--				<g:if test="${dashboardInstance?.title}">--%>
-<%--				<li class="fieldcontain">--%>
-<%--					<span id="title-label" class="property-label"><g:message code="dashboard.title.label" default="Title" /></span>--%>
-<%--					--%>
-<%--						<span class="property-value" aria-labelledby="title-label"><g:fieldValue bean="${dashboardInstance}" field="title"/></span>--%>
-<%--					--%>
-<%--				</li>--%>
-<%--				</g:if>--%>
-			
-<%--				<g:if test="${dashboardInstance?.author}">--%>
-<%--				<li class="fieldcontain">--%>
-<%--					<span id="author-label" class="property-label"><g:message code="dashboard.author.label" default="Author" /></span>--%>
-<%--					--%>
-<%--						<span class="property-value" aria-labelledby="author-label"><g:fieldValue bean="${dashboardInstance}" field="author"/></span>--%>
-<%--					--%>
-<%--				</li>--%>
-<%--				</g:if>--%>
-<%--			--%>
-<%--				<g:if test="${dashboardInstance?.description}">--%>
-<%--				<li class="fieldcontain">--%>
-<%--					<span id="description-label" class="property-label"><g:message code="dashboard.description.label" default="Description" /></span>--%>
-<%--					--%>
-<%--						<span class="property-value" aria-labelledby="description-label"><g:fieldValue bean="${dashboardInstance}" field="description"/></span>--%>
-<%--					--%>
-<%--				</li>--%>
-<%--				</g:if>--%>
-<%--			--%>
-<%--				<g:if test="${dashboardInstance?.email}">--%>
-<%--				<li class="fieldcontain">--%>
-<%--					<span id="email-label" class="property-label"><g:message code="dashboard.email.label" default="Email" /></span>--%>
-<%--					--%>
-<%--						<span class="property-value" aria-labelledby="email-label"><g:fieldValue bean="${dashboardInstance}" field="email"/></span>--%>
-<%--					--%>
-<%--				</li>--%>
-<%--				</g:if>--%>
-			
                 <g:if test="${dashboardInstance?.cards}">
 
                 <li class="fieldcontain">
-                    <%--                        <g:each in="${dashboardInstance.cards}" var="c">--%> <%--                       <span class="property-value" aria-labelledby="cards-label"><g:link controller="card" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></span>--%>
-                    <%--                        </g:each>               --%>
                     <div id="container">
                         <div id="todo" class="cardcolumn actie" ondrop="drop(event)" ondragover="allowDrop(event)">
-                            <div class="columnheader">Actie</div>
+                            <div class="columnheader actieheader">Actie</div>
                             <g:each in="${dashboardInstance.cards}" var="c">
                                 <g:if test="${c.column == 'TODO'}">
                                     <div id="${c.id}"  class="card" draggable="true" ondragstart="drag(event)">
@@ -176,7 +128,7 @@
                             </g:each>
                         </div>
                         <div id="doing" class="cardcolumn actief" ondrop="drop(event)" ondragover="allowDrop(event)">
-                            <div class="columnheader">Actief</div>
+                            <div class="columnheader actiefheader">Actief</div>
                             <g:each in="${dashboardInstance.cards}" var="c">
                                 <g:if test="${c.column == 'DOING'}">
                                     <div id="${c.id}"  class="card" draggable="true" ondragstart="drag(event)">
@@ -188,7 +140,7 @@
                             </g:each>
                         </div>
                         <div id="done" class="cardcolumn voltooid" ondrop="drop(event)" ondragover="allowDrop(event)">
-                            <div class="columnheader">Voltooid</div>
+                            <div class="columnheader voltooidheader">Voltooid</div>
                             <g:each in="${dashboardInstance.cards}" var="c">
                                 <g:if test="${c.column == 'DONE'}">
                                     <div id="${c.id}"  class="card" draggable="true" ondragstart="drag(event)">
@@ -203,8 +155,20 @@
                         
                         <g:if test="${dashboardInstance?.users}">
                             <div id="users" class="usercolumn">
+                                <div class="columnheader">Medewerkers</div>
                                 <g:each in="${dashboardInstance.users}" var="u">
-                                    <div class="userbox">${u?.firstname.encodeAsHTML()}</div>
+                                    <div class="userbox">
+                                    <img src="${resource(dir: 'images', file: 'yoda.jpg')}" alt="${u?.firstname.encodeAsHTML()}" ALIGN="top"/>
+                                    </div>
+                                    <div class="userbox">
+                                    <img src="${resource(dir: 'images', file: 'yoda.jpg')}" alt="${u?.firstname.encodeAsHTML()}" ALIGN="top"/>
+                                    </div>
+                                    <div class="userbox">
+                                    <img src="${resource(dir: 'images', file: 'yoda.jpg')}" alt="${u?.firstname.encodeAsHTML()}" ALIGN="top"/>
+                                    </div>
+                                    <div class="userbox">
+                                    <img src="${resource(dir: 'images', file: 'yoda.jpg')}" alt="${u?.firstname.encodeAsHTML()}" ALIGN="top"/>
+                                    </div>
                                 </g:each>
                             </div>
                         </g:if>
