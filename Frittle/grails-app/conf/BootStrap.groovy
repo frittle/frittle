@@ -32,9 +32,9 @@ class BootStrap {
 				new User(login: "leoaarnink", password: "geheim1234", firstname: "leo", lastname: "aarnink", dashboards: [
 					new Dashboard(author: "Marc", title: "Frittle", description: "Some other Dashboard", email: "marcdix0@gmail.com",
 						cards: [
-							new Card(username: "erik", usernameShort: "MD", text: "bootstrap", discipline: "bouw", column: "TODO"),
-							new Card(username: "leo", usernameShort: "EV", text: "presentatie deel 1", discipline: "bouw", column: "DOING"),
-							new Card(username: "marc", usernameShort: "LA", text: "presentatie deel 2", discipline: "bouw", column: "DONE"),
+							new Card(username: "Erik", usernameShort: "EV", text: "bootstrap", discipline: "bouw", column: "TODO"),
+							new Card(username: "Leo", usernameShort: "LA", text: "presentatie deel 1", discipline: "bouw", column: "DOING"),
+							new Card(username: "Marc", usernameShort: "MD", text: "presentatie deel 2", discipline: "bouw", column: "DONE"),
 							]
 						)
 					] ).save(failOnError: true)
