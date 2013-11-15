@@ -241,7 +241,7 @@ function drop(ev) {
 	var card = document.getElementById(data);
 	ev.target.appendChild(card);
 
-	alert("card met id = '" + card.id + "' is geplaatst in kolom '" + ev.target.id + "'. \r\nDit doorgeven aan de server in function DashboardController.processCardMove() mbv een jsonobject");
+	alert("card met id = '" + card.id + "' is geplaatst in kolom '" + ev.target.id + "'. \r\nDit wordt doorgeven aan de server in function DashboardController.processCardMove() mbv een jsonobject. \r\nZie ook de Console!!");
 // LEO A:
 //alleen de id is bekend op de client, de card is er niet...(grails op de server..)
 //Er zijn volgens mij 3 oplossingen :
